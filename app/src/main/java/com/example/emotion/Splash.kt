@@ -22,7 +22,9 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import kotlinx.coroutines.delay
 import android.view.animation.OvershootInterpolator
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 
 @Composable
 fun SplashScreen(navController : NavController) {
@@ -62,4 +64,12 @@ fun SplashScreen(navController : NavController) {
 
         }
     }
+}
+
+
+@Preview
+@Composable
+fun Preview1(){
+    val navController = rememberNavController()
+    SplashScreen(navController)
 }

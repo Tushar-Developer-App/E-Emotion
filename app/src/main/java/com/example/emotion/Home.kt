@@ -1,24 +1,26 @@
 package com.example.emotion
 
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.CardColors
+import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CardElevation
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -30,12 +32,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.emotion.ui.theme.Skin
-import com.example.emotion.ui.theme.bottom
+import com.example.emotion.ui.theme.b4
+import com.example.emotion.ui.theme.t
 import com.exyte.animatednavbar.AnimatedNavigationBar
 import com.exyte.animatednavbar.animation.balltrajectory.Parabolic
 import com.exyte.animatednavbar.animation.indendshape.Height
@@ -54,8 +58,8 @@ fun Bottom() {
                 cornerRadius = shapeCornerRadius(cornerRadius = 34.dp),
                 ballAnimation = Parabolic(tween(300)),
                 indentAnimation = Height(tween(300)),
-                barColor = bottom,
-                ballColor = Color.White,
+                barColor = t,
+                ballColor = b4,
             ) {
                 navigationBarItems.forEach { item ->
                     Box(
@@ -68,20 +72,20 @@ fun Bottom() {
                             modifier = Modifier.size(26.dp),
                             painter = painterResource(item.icon),
                             contentDescription = "Bottom Bar icons",
-                            tint = if (selectedIndex == item.ordinal) Color.White
-                            else Color.White
+                            tint = if (selectedIndex == item.ordinal) b4
+                            else b4
                         )
                     }
                 }
             }
         }) {
         it
-        GreetingHeader()
+        Home()
     }
 }
 
 enum class NavigationBarItems(val icon: Int) {
-    Home(icon = R.drawable.home_24), Call(icon = R.drawable.user), Fav(icon = R.drawable.heart)
+    Home(icon = R.drawable.home_24), Call(icon = R.drawable.profile), Fav(icon = R.drawable.heart)
 }
 
 fun Modifier.noRippleClickable(onClick: () -> Unit): Modifier = composed {
@@ -95,62 +99,76 @@ fun Modifier.noRippleClickable(onClick: () -> Unit): Modifier = composed {
 
 
 @Composable
-fun GreetingHeader(
+fun Header(
     userName: String = "Paul",
     onNotificationClick: () -> Unit = {}
 ) {
-    ElevatedCard(
+    Row(
         modifier = Modifier
-            .fillMaxWidth(),
-        shape = RoundedCornerShape(0.dp),
-        elevation = CardDefaults.cardElevation(defaultElevation = 50.dp),
-        colors = CardColors(
-            containerColor = Color.White,
-            contentColor = Color.White,
-            disabledContainerColor = Color.White,
-            disabledContentColor = Color.White)
-    )
-    {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp, vertical = 12.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween
+            .fillMaxWidth()
+            .padding(horizontal = 8.dp, vertical = 20.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+        IconButton(
+            onClick = onNotificationClick,
         ) {
+            Image(
+                painter = painterResource(id = R.drawable.user), // Replace with your image resource ID
+                contentDescription = "Notifications",
+                modifier = Modifier.size(70.dp),
+                contentScale = ContentScale.Fit
 
-            Row(
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    text = "Hello, $userName",
-                    style = MaterialTheme.typography.titleMedium,
-                    color = Color.Black,
-                    fontSize = 25.sp
-                )
-                Text(
-                    text = "\uD83D\uDC4B", // 👋 waving hand emoji
-                    fontSize = 25.sp,
-                    modifier = Modifier.padding(start = 4.dp)
+            )
+        }
 
-                )
-            }
-            // Right Side: Notification Icon (bell)
-            IconButton(
-                onClick = onNotificationClick,
-            ) {
-                Icon(
-                    painter = painterResource(id = R.drawable.bell1),
-                    modifier = Modifier.size(30.dp),
-                    contentDescription = "Notifications",
-                    tint = bottom
-                )
-                // You can add a small blue dot by layering another composable if needed
-            }
+        Text("Jenna Coleman", color = Color.White,
+            fontSize = 20.sp)
+
+        // Right Side: Notification Icon (bell)
+        IconButton(
+            onClick = onNotificationClick,
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.bell), // Replace with your image resource ID
+                contentDescription = "Notifications",
+                modifier = Modifier.size(30.dp),
+                contentScale = ContentScale.Fit
+
+            )
         }
     }
 }
 
+
+@Composable
+fun Home() {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+
+    ) {
+        Image(
+            painter = painterResource(id = R.drawable.splash), // Replace with your actual image resource ID
+            contentDescription = null,
+            modifier = Modifier.fillMaxSize(),
+            contentScale = ContentScale.Crop, // Ensures the image fills the screen by cropping if necessary
+            alignment = Alignment.Center
+        )
+        Header()
+        ElevatedCard(modifier = Modifier.fillMaxSize().padding(top = 300.dp),
+            shape = RoundedCornerShape(topStart = 50.dp, topEnd = 50.dp),
+            elevation = CardDefaults.cardElevation(defaultElevation =50.dp),
+            ) {
+
+        }
+
+
+
+    }
+
+
+}
 
 @Preview
 @Composable
