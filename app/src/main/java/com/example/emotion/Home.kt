@@ -7,6 +7,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,10 +15,11 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.CardElevation
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -34,12 +36,17 @@ import androidx.compose.ui.composed
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.emotion.ui.theme.Skin
-import com.example.emotion.ui.theme.b4
-import com.example.emotion.ui.theme.t
+import com.example.emotion.ui.theme.b1
+import com.example.emotion.ui.theme.card
+import com.example.emotion.ui.theme.test1
+import com.example.emotion.ui.theme.test2
+import com.example.emotion.ui.theme.test3
+import com.example.emotion.ui.theme.text
 import com.exyte.animatednavbar.AnimatedNavigationBar
 import com.exyte.animatednavbar.animation.balltrajectory.Parabolic
 import com.exyte.animatednavbar.animation.indendshape.Height
@@ -58,8 +65,8 @@ fun Bottom() {
                 cornerRadius = shapeCornerRadius(cornerRadius = 34.dp),
                 ballAnimation = Parabolic(tween(300)),
                 indentAnimation = Height(tween(300)),
-                barColor = t,
-                ballColor = b4,
+                barColor = test3,
+                ballColor = b1,
             ) {
                 navigationBarItems.forEach { item ->
                     Box(
@@ -72,8 +79,8 @@ fun Bottom() {
                             modifier = Modifier.size(26.dp),
                             painter = painterResource(item.icon),
                             contentDescription = "Bottom Bar icons",
-                            tint = if (selectedIndex == item.ordinal) b4
-                            else b4
+                            tint = if (selectedIndex == item.ordinal) b1
+                            else b1
                         )
                     }
                 }
@@ -90,18 +97,14 @@ enum class NavigationBarItems(val icon: Int) {
 
 fun Modifier.noRippleClickable(onClick: () -> Unit): Modifier = composed {
     clickable(
-        indication = null,
-        interactionSource = remember { MutableInteractionSource() }
-    ) {
+        indication = null, interactionSource = remember { MutableInteractionSource() }) {
         onClick()
     }
 }
 
-
 @Composable
 fun Header(
-    userName: String = "Paul",
-    onNotificationClick: () -> Unit = {}
+    userName: String = "Paul", onNotificationClick: () -> Unit = {}
 ) {
     Row(
         modifier = Modifier
@@ -122,8 +125,9 @@ fun Header(
             )
         }
 
-        Text("Jenna Coleman", color = Color.White,
-            fontSize = 20.sp)
+        Text(
+            "Jenna Coleman", color = Color.White, fontSize = 20.sp
+        )
 
         // Right Side: Notification Icon (bell)
         IconButton(
@@ -144,8 +148,7 @@ fun Header(
 @Composable
 fun Home() {
     Box(
-        modifier = Modifier
-            .fillMaxSize()
+        modifier = Modifier.fillMaxSize()
 
     ) {
         Image(
@@ -156,18 +159,71 @@ fun Home() {
             alignment = Alignment.Center
         )
         Header()
-        ElevatedCard(modifier = Modifier.fillMaxSize().padding(top = 300.dp),
-            shape = RoundedCornerShape(topStart = 50.dp, topEnd = 50.dp),
-            elevation = CardDefaults.cardElevation(defaultElevation =50.dp),
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 10.dp, vertical = 100.dp),
+            horizontalArrangement = Arrangement.SpaceEvenly,
+
             ) {
+            Card(
+                modifier = Modifier.weight(1f),
+                elevation = CardDefaults.cardElevation(defaultElevation = 50.dp),
+                colors = CardDefaults.cardColors(containerColor = test1),
 
+                ) {
+                Column(modifier = Modifier
+                    .wrapContentSize()){
+                    Text(
+                        "Nature",
+                        modifier = Modifier.fillMaxWidth(),
+                        color = card,
+                        textAlign = TextAlign.Center
+                    )
+                    Spacer(modifier = Modifier.height(120.dp))
+                    Text(
+                        "Nature",
+                        modifier = Modifier.fillMaxWidth(),
+                        color = card,
+                        textAlign = TextAlign.End
+                    )
+                }
+            }
+            Spacer(modifier = Modifier.width(10.dp))
+            Card(
+                modifier = Modifier.weight(1f),
+                elevation = CardDefaults.cardElevation(defaultElevation = 50.dp),
+                colors = CardDefaults.cardColors(containerColor = card),
+
+                ) {
+                Column(modifier = Modifier
+                    .fillMaxWidth()
+                    ) {
+                    Text(
+                        "Tushar",
+                        color = test1,
+                        textAlign = TextAlign.Center
+                    )
+                    Spacer(modifier = Modifier.height(120.dp))
+                    Text(
+                        "Nature",
+                        modifier = Modifier.fillMaxWidth(),
+                        color = test1,
+                        textAlign = TextAlign.End
+                    )
+                }
+            }
         }
-
-
-
+        ElevatedCard(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(top = 300.dp),
+            shape = RoundedCornerShape(topStart = 50.dp, topEnd = 50.dp),
+            elevation = CardDefaults.cardElevation(defaultElevation = 50.dp),
+            colors = CardDefaults.cardColors(containerColor = test2)
+        ) {
+        }
     }
-
-
 }
 
 @Preview
