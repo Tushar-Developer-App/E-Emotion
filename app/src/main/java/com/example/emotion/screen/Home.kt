@@ -1,4 +1,4 @@
-package com.example.emotion
+package com.example.emotion.screen
 
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
@@ -40,13 +40,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.emotion.R
 import com.example.emotion.ui.theme.Skin
 import com.example.emotion.ui.theme.b1
 import com.example.emotion.ui.theme.card
 import com.example.emotion.ui.theme.test1
 import com.example.emotion.ui.theme.test2
 import com.example.emotion.ui.theme.test3
-import com.example.emotion.ui.theme.text
 import com.exyte.animatednavbar.AnimatedNavigationBar
 import com.exyte.animatednavbar.animation.balltrajectory.Parabolic
 import com.exyte.animatednavbar.animation.indendshape.Height
@@ -90,7 +90,6 @@ fun Bottom() {
         Home()
     }
 }
-
 enum class NavigationBarItems(val icon: Int) {
     Home(icon = R.drawable.home_24), Call(icon = R.drawable.profile), Fav(icon = R.drawable.heart)
 }

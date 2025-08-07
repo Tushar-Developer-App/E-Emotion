@@ -1,12 +1,12 @@
-package com.example.emotion.Navigation
+package com.example.emotion.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.emotion.Bottom
-import com.example.emotion.SplashScreen
+import com.example.emotion.screen.Bottom
+import com.example.emotion.screen.SplashScreen
 
 @Composable
 fun AppNavigation() {

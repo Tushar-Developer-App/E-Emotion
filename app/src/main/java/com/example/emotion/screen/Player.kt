@@ -1,4 +1,4 @@
-package com.example.emotion
+package com.example.emotion.screen
 
 import androidx.compose.foundation.Image
 
@@ -13,23 +13,23 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Slider
+import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.layout.ModifierLocalBeyondBoundsLayout
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.example.emotion.R
 
 
 @Composable
@@ -56,31 +56,43 @@ fun Bar(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
+                // Left Side: Backspace Icon
                 IconButton(
-                    onClick = onNotificationClick,
+                    onClick = onNotificationClick,  // Ensure this variable is defined
                 ) {
                     Image(
-                        painter = painterResource(id = R.drawable.backspace), // Replace with your image resource ID
-                        contentDescription = "Notifications",
+                        painter = painterResource(id = R.drawable.backspace),  // Replace with your image resource ID
+                        contentDescription = "Backspace",
                         modifier = Modifier
                             .size(25.dp)
                             .clip(CircleShape),
                         contentScale = ContentScale.Fit
-
                     )
+                }
 
+                // Center: Corrected "Nature" Text
+                Column(
+                    modifier = Modifier.wrapContentSize(),
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally  // Added for better centering
+                ) {
+                    Text(
+                        text = "Nature",
+                        color = Color.White,
+                        fontSize = 25.sp,  // Corrected to scale the font size properly
+                        style = LocalTextStyle.current  // Optional: Use current theme style
+                    )
                 }
 
                 // Right Side: Notification Icon (bell)
                 IconButton(
-                    onClick = onNotificationClick,
+                    onClick = onNotificationClick,  // Ensure this variable is defined
                 ) {
                     Image(
-                        painter = painterResource(id = R.drawable.bellplayer), // Replace with your image resource ID
+                        painter = painterResource(id = R.drawable.bellplayer),  // Replace with your image resource ID
                         contentDescription = "Notifications",
                         modifier = Modifier.size(30.dp),
                         contentScale = ContentScale.Fit
-
                     )
                 }
             }
@@ -108,18 +120,19 @@ fun PlayerUI(
 
         ) {
         Spacer(modifier = Modifier.height(565.dp))
-        Slider(
-            value = progress,
-            onValueChange = onSeek,
-            thumb = {
-                Icon(
-                    painter = painterResource(id = R.drawable.play), // Or custom painter
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.background,
-                    modifier = modifier.size(20.dp)
-                )
-            }
-        )
+        MusicBar()
+        /*Slider(
+             value = progress,
+             onValueChange = onSeek,
+             thumb = {
+                 Icon(
+                     painter = painterResource(id = R.drawable.play), // Or custom painter
+                     contentDescription = null,
+                     tint = MaterialTheme.colorScheme.background,
+                     modifier = modifier.size(20.dp)
+                 )
+             }
+         )*/
 
         Spacer(modifier = Modifier.height(20.dp))
 

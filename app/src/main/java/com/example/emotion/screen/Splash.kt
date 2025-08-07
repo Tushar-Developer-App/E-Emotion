@@ -1,4 +1,4 @@
-package com.example.emotion
+package com.example.emotion.screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
@@ -25,6 +25,7 @@ import android.view.animation.OvershootInterpolator
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.example.emotion.R
 
 @Composable
 fun SplashScreen(navController : NavController) {

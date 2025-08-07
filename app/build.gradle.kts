@@ -61,4 +61,7 @@ dependencies {
 
     //Bottom Navigation
     implementation("com.exyte:animated-navigation-bar:1.0.0")
+    //media
+    implementation("androidx.media3:media3-exoplayer:1.4.1")
+    implementation("androidx.media3:media3-ui:1.4.1")
 }
