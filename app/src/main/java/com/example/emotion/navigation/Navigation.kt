@@ -17,22 +17,18 @@ fun AppNavigation() {
         composable("feelstream_screen") {
             // Add your FeelStreamScreen here
             // FeelStreamScreen(navController)
-            Bottom() // Temporary placeholder
         }
         composable("heartline_screen") {
             // Add your HeartlineScreen here
             // HeartlineScreen(navController)
-            Bottom() // Temporary placeholder
         }
         composable("sensespace_screen") {
             // Add your SenseSpaceScreen here
             // SenseSpaceScreen(navController)
-            Bottom() // Temporary placeholder
         }
         composable("moodscape_screen") {
             // Add your MoodscapeScreen here
             // MoodscapeScreen(navController)
-            Bottom() // Temporary placeholder
         }
     }
 }
