@@ -24,11 +24,12 @@ import kotlinx.coroutines.delay
 import android.view.animation.OvershootInterpolator
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.emotion.R
 
 @Composable
-fun SplashScreen(navController : NavController) {
+fun SplashScreen(navController : NavHostController) {
     val scale = remember { Animatable(0f) } // Starts at 0 scale[1]
 
     // Animation launch

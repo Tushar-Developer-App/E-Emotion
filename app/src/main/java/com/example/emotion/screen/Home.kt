@@ -137,7 +137,6 @@ fun Header(
                 contentDescription = "Notifications",
                 modifier = Modifier.size(30.dp),
                 contentScale = ContentScale.Fit
-
             )
         }
     }

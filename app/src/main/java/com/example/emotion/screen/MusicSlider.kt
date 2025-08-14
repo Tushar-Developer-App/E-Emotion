@@ -51,10 +51,3 @@ fun MusicBar() {
     }
 }
 
-
-@Preview
-@Composable
-fun MusicBarPreview() {
-    MusicBar()
-
-}

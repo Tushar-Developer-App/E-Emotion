@@ -30,6 +30,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.emotion.R
+import com.example.emotion.screen.MusicBar
 
 
 @Composable
@@ -121,19 +122,6 @@ fun PlayerUI(
         ) {
         Spacer(modifier = Modifier.height(565.dp))
         MusicBar()
-        /*Slider(
-             value = progress,
-             onValueChange = onSeek,
-             thumb = {
-                 Icon(
-                     painter = painterResource(id = R.drawable.play), // Or custom painter
-                     contentDescription = null,
-                     tint = MaterialTheme.colorScheme.background,
-                     modifier = modifier.size(20.dp)
-                 )
-             }
-         )*/
-
         Spacer(modifier = Modifier.height(20.dp))
 
         // Controls
