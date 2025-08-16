@@ -118,9 +118,8 @@ fun MainScreen(navController: NavController) {  // Added NavController parameter
                 Spacer(modifier = Modifier.height(10.dp))
                 Row(
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 5.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween
+                        .fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceEvenly
                 ) {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         Image(

@@ -125,7 +125,7 @@ fun Header(
         }
 
         Text(
-            "Jenna Coleman", color = Color.White, fontSize = 20.sp
+            userName, color = Color.White, fontSize = 20.sp
         )
 
         // Right Side: Notification Icon (bell)

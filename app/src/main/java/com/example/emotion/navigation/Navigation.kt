@@ -6,6 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.emotion.screen.Bottom
+import com.example.emotion.screen.Heartline
 import com.example.emotion.screen.MainScreen
 import com.example.emotion.screen.SplashScreen
 
@@ -23,6 +24,7 @@ fun AppNavigation() {
         composable("heartline_screen") {
             // Add your HeartlineScreen here
             // HeartlineScreen(navController)
+            Heartline(onBackClick = { navController.popBackStack() })
         }
         composable("sensespace_screen") {
             // Add your SenseSpaceScreen here
