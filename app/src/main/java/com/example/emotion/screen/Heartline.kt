@@ -19,12 +19,14 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.input.rememberTextFieldState
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRow
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -55,6 +57,7 @@ fun Heartline(onBackClick: () -> Unit) {
                 .fillMaxSize()
                 .background(p1)
         ) {
+            Spacer(modifier = Modifier.height(20.dp))
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -74,7 +77,8 @@ fun Heartline(onBackClick: () -> Unit) {
                 Image(
                     painter = painterResource(id = R.drawable.heartline), // Replace with your image resource ID
                     contentDescription = "Backspace",
-                    modifier = Modifier.padding(start = 80.dp)
+                    modifier = Modifier
+                        .padding(start = 80.dp)
                         .size(30.dp)
                         .clip(CircleShape),
                     contentScale = ContentScale.Fit
@@ -101,7 +105,6 @@ fun Heartline(onBackClick: () -> Unit) {
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Text("", fontSize = 22.sp)
                     Image(
                         painter = painterResource(id = R.drawable.search1),  // Replace with your image
                         contentDescription = "Backspace",
@@ -152,7 +155,8 @@ fun PeopleList(people: List<Person>) {
 
             Row(
                 modifier = Modifier
-                    .fillMaxWidth().padding(horizontal = 16.dp),  // Applies background color to the row // Spaces elements evenly across the row
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp),  // Applies background color to the row // Spaces elements evenly across the row
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Image(

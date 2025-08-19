@@ -19,7 +19,6 @@ val people = listOf(
     Person("Alex Turner", R.drawable.men4, "4.5"),
     Person("Brian Carter", R.drawable.men5, "4.0"),
     Person("Benjamin Taylor", R.drawable.female3, "4.7"),
-    Person("Bella James", R.drawable.female, "4.3"),
     Person("Bianca Torres", R.drawable.female2, "4.9"),
     Person("Charlotte Wilson", R.drawable.female, "4.6"),
     Person("David Johnson", R.drawable.men3, "3.8"),
@@ -31,5 +30,31 @@ val people = listOf(
     Person("Jack Wilson", R.drawable.men4, "4.0"),
     Person("Katherine Evans", R.drawable.female, "4.7"),
     Person("Liam White", R.drawable.men6, "3.9"),
+    Person("Bella James", R.drawable.female, "4.3"),
 
     )
+
+data class PowerYogaClass(
+    val title: String,
+    val subtitle: String,
+    val imageRes: Int,  // Resource ID for the background image (e.g., R.drawable.power_yoga)
+    val onArrowClick: () -> Unit = {}  // Lambda for handling the arrow button click
+)
+
+
+val sampleYogaClass = listOf(
+    PowerYogaClass(
+        title = "Power Yoga",
+        subtitle = "High-intensity power yoga",
+        imageRes = R.drawable.y1,
+        onArrowClick = { /* Navigate or start session */ }
+    ),
+    PowerYogaClass(
+        title = "Relaxing Yoga",
+        subtitle = "Unwind and de-stress",
+        imageRes = R.drawable.y2,
+        onArrowClick = { /* Navigate or start session */ }
+    )
+    // Add more as needed
+)
+val powerYogaClasses = listOf(sampleYogaClass)

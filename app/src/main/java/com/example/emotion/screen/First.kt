@@ -198,12 +198,12 @@ fun MainScreen(navController: NavController) {  // Added NavController parameter
                     SurfaceItem(1, R.drawable.feelstream3, "FeelStream"),
                     SurfaceItem(2, R.drawable.heartline, "Heartline"),
                     SurfaceItem(3, R.drawable.sensespace1, "Sense Space"),
-                    SurfaceItem(4, R.drawable.moodscape2, "Moodscape")
+
                 )
                 LazyVerticalGrid(
                     columns = GridCells.Fixed(1),
                     modifier = Modifier.fillMaxWidth(),
-                    verticalArrangement = Arrangement.spacedBy(8.dp),
+                    verticalArrangement = Arrangement.spacedBy(30.dp),
                     contentPadding = PaddingValues(horizontal = 10.dp, vertical = 8.dp)
                 ) {
                     items(surfaceItems) { item ->

@@ -8,6 +8,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.emotion.screen.Bottom
 import com.example.emotion.screen.Heartline
 import com.example.emotion.screen.MainScreen
+import com.example.emotion.screen.SenseSpace
 import com.example.emotion.screen.SplashScreen
 
 @Composable
@@ -28,7 +29,8 @@ fun AppNavigation() {
         }
         composable("sensespace_screen") {
             // Add your SenseSpaceScreen here
-            // SenseSpaceScreen(navController)
+            SenseSpace()
+
         }
         composable("moodscape_screen") {
             // Add your MoodscapeScreen here

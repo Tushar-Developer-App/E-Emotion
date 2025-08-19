@@ -31,3 +31,6 @@ val test1=Color(0xFFdfdfdf)
 val card=Color(0xFFFFF0D1)
 val test2=Color(0xFFEEEEEE)
 val test3=Color(0xFFEEEEEE)
+
+val hcard=Color(0xFFfdd8c4)
+val min=Color(0xFF9d745e)
