@@ -53,13 +53,11 @@ import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.TextFieldValue
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.emotion.R
 import com.example.emotion.ui.theme.Skin
-import com.example.emotion.ui.theme.b1
 import com.example.emotion.ui.theme.hcard
 import com.example.emotion.ui.theme.min
 import com.example.emotion.ui.theme.test3
@@ -128,13 +126,13 @@ fun Header(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(horizontal = 8.dp)
+
     ) {
         Spacer(modifier = Modifier.height(20.dp))
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(vertical = 20.dp),
+                .padding(vertical = 20.dp, horizontal = 4.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
@@ -161,7 +159,8 @@ fun Header(
                 Icon(
                     imageVector = Icons.Default.MoreVert,
                     modifier = Modifier.size(30.dp),
-                    contentDescription = "Favorite"
+                    contentDescription = "Favorite",
+                    tint = Color.Black
                 )
             }
         }

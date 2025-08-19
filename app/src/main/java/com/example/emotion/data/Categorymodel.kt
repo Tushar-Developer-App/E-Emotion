@@ -47,13 +47,13 @@ val sampleYogaClass = listOf(
         title = "Power Yoga",
         subtitle = "High-intensity power yoga",
         imageRes = R.drawable.y1,
-        onArrowClick = { /* Navigate or start session */ }
+        onArrowClick = { }
     ),
     PowerYogaClass(
         title = "Relaxing Yoga",
         subtitle = "Unwind and de-stress",
         imageRes = R.drawable.y2,
-        onArrowClick = { /* Navigate or start session */ }
+        onArrowClick = {  }
     )
     // Add more as needed
 )
